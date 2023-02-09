@@ -51,5 +51,33 @@ describe('average-test', () => {
         expect(result.average).to.equal(2.5);
     });
 
+    it('should return the average of valid numbers in the bound of the maximum range(100) of the array', () => {
+        const arr = [];
+        for (let i = 0; i <= 102; i++) {
+            arr[i] = i;
+        }
+        const result = average(arr, 0, 100);
+        expect(result.total.valid).to.equal(100);
+        expect(result.total.input).to.equal(100);
+        expect(result.average).to.equal(49.5);
+    });
+
+    it('It should return total.input = 100 , If the range of The array is < 100 and does not contain the value -999', () => {
+        const arr = [1,2,3,4,5];
+        const result = average(arr, 0, 10);
+
+        expect(result.total.valid).to.equal(5);
+        expect(result.total.input).to.equal(100);
+        expect(result.average).to.equal(3);
+    });
+
+    it('It should return all 0 When argument is missing', () => {
+        const result = average();
+
+        expect(result.total.valid).to.equal(0);
+        expect(result.total.input).to.equal(0);
+        expect(result.average).to.equal(0);
+    });
+
   
 });
