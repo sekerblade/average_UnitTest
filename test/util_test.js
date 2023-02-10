@@ -51,7 +51,7 @@ describe('average-test', () => {
         expect(result.average).to.equal(2.5);
     });
 
-    it('should return the average of valid numbers in the bound of the maximum range(100) of the array', () => {
+    it('should return the average of valid numbers within the specified range with a maximum of 100 inputs', () => {
         const arr = [];
         for (let i = 0; i <= 102; i++) {
             arr[i] = i;
